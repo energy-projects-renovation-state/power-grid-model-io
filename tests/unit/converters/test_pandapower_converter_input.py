@@ -552,7 +552,7 @@ def test_create_pgm_input_nodes(mock_init_array: MagicMock, two_pp_objs: MockDf,
     assert converter.pgm_input_data[ComponentType.node] == mock_init_array.return_value
 
 
-def test_create_pgm_input_nodes__overwrite():
+def test_create_pgm_input_nodes__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["bus"] = pd.DataFrame(data={"vn_kv": [11.0]}, index=[101])
     converter.pgm_input_data[ComponentType.node] = initialize_array(DatasetType.input, ComponentType.node, 1)
@@ -667,7 +667,7 @@ def test_create_pgm_input_lines(mock_init_array: MagicMock, two_pp_objs, convert
     assert converter.pgm_input_data[ComponentType.line] == mock_init_array.return_value
 
 
-def test_create_pgm_input_lines__overwrite():
+def test_create_pgm_input_lines__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["line"] = pd.DataFrame(data={"from_bus": [101], "to_bus": [102]}, index=[101])
     converter.pgm_input_data[ComponentType.line] = initialize_array(DatasetType.input, ComponentType.line, 1)
@@ -720,7 +720,7 @@ def test_create_pgm_input_sources(mock_init_array: MagicMock, two_pp_objs, conve
     assert converter.pgm_input_data[ComponentType.source] == mock_init_array.return_value
 
 
-def test_create_pgm_input_sources__overwrite():
+def test_create_pgm_input_sources__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["ext_grid"] = pd.DataFrame(data={"bus": [101]}, index=[201])
     converter.pgm_input_data[ComponentType.source] = initialize_array(DatasetType.input, ComponentType.source, 1)
@@ -804,7 +804,7 @@ def test_create_pgm_input_sym_loads(mock_init_array: MagicMock, two_pp_objs, con
     assert converter.pgm_input_data[ComponentType.sym_load] == pgm
 
 
-def test_create_pgm_input_sym_loads__overwrite():
+def test_create_pgm_input_sym_loads__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["load"] = pd.DataFrame(data={"bus": [101]}, index=[201])
     converter.pgm_input_data[ComponentType.sym_load] = initialize_array(DatasetType.input, ComponentType.sym_load, 1)
@@ -856,7 +856,7 @@ def test_create_pgm_input_asym_loads(mock_init_array: MagicMock, two_pp_objs, co
     assert converter.pgm_input_data[ComponentType.asym_load] == mock_init_array.return_value
 
 
-def test_create_pgm_input_asym_loads__overwrite():
+def test_create_pgm_input_asym_loads__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["asymmetric_load"] = pd.DataFrame(data={"bus": [101]}, index=[201])
     converter.pgm_input_data[ComponentType.asym_load] = initialize_array(DatasetType.input, ComponentType.asym_load, 1)
@@ -971,7 +971,7 @@ def test_create_pgm_input_shunts(mock_init_array: MagicMock, two_pp_objs, conver
     assert converter.pgm_input_data[ComponentType.shunt] == mock_init_array.return_value
 
 
-def test_create_pgm_input_shunts__overwrite():
+def test_create_pgm_input_shunts__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["shunt"] = pd.DataFrame(data={"bus": [101]}, index=[201])
     converter.pgm_input_data[ComponentType.shunt] = initialize_array(DatasetType.input, ComponentType.shunt, 1)
@@ -1068,7 +1068,7 @@ def test_create_pgm_input_transformers(mock_init_array: MagicMock, two_pp_objs, 
     assert converter.pgm_input_data[ComponentType.transformer] == mock_init_array.return_value
 
 
-def test_create_pgm_input_transformers__overwrite():
+def test_create_pgm_input_transformers__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["trafo"] = pd.DataFrame(data={"hv_bus": [101], "lv_bus": [102]}, index=[201])
     converter.pgm_input_data[ComponentType.transformer] = initialize_array(
@@ -1209,7 +1209,7 @@ def test_create_pgm_input_sym_gens(mock_init_array: MagicMock, two_pp_objs, conv
     assert converter.pgm_input_data[ComponentType.sym_gen] == mock_init_array.return_value
 
 
-def test_create_pgm_input_sym_gens__overwrite():
+def test_create_pgm_input_sym_gens__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["sgen"] = pd.DataFrame(data={"bus": [101]}, index=[201])
     converter.pgm_input_data[ComponentType.sym_gen] = initialize_array(DatasetType.input, ComponentType.sym_gen, 1)
@@ -1306,7 +1306,7 @@ def test_create_pgm_input_asym_gens(mock_init_array: MagicMock, two_pp_objs, con
     assert converter.pgm_input_data[ComponentType.asym_gen] == mock_init_array.return_value
 
 
-def test_create_pgm_input_asym_gens__overwrite():
+def test_create_pgm_input_asym_gens__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["asymmetric_sgen"] = pd.DataFrame(data={"bus": [101]}, index=[201])
     converter.pgm_input_data[ComponentType.asym_gen] = initialize_array(DatasetType.input, ComponentType.asym_gen, 1)
@@ -1416,7 +1416,7 @@ def test_create_pgm_input_three_winding_transformers(mock_init_array: MagicMock,
     assert converter.pgm_input_data[ComponentType.three_winding_transformer] == mock_init_array.return_value
 
 
-def test_create_pgm_input_three_winding_transformers__overwrite():
+def test_create_pgm_input_three_winding_transformers__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["trafo3w"] = pd.DataFrame(
         data={"hv_bus": [101], "mv_bus": [102], "lv_bus": [103]}, index=[201]
@@ -1732,7 +1732,7 @@ def test_create_pgm_input_links(mock_init_array: MagicMock, converter):
     assert converter.pgm_input_data[ComponentType.link] == mock_init_array.return_value
 
 
-def test_create_pgm_input_links__overwrite():
+def test_create_pgm_input_links__bad_input():
     converter = PandaPowerConverter()
     converter.pp_input_data["switch"] = pd.DataFrame(
         [[0, 0, "b", False], [0, 0, "l", False], [0, 0, "b", False]],
