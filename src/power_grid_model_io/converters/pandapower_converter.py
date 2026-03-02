@@ -598,7 +598,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a power-grid-model structured array for the Asymmetrical Generator component
         """
-        # TODO: create unit tests for asym_gen conversion
         pp_asym_gens = self.pp_input_data["asymmetric_sgen"]
 
         if pp_asym_gens.empty:
@@ -731,7 +730,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a power-grid-model structured array for the asym_load component
         """
-        # TODO: create unit tests for asym_load conversion
         pp_asym_loads = self.pp_input_data["asymmetric_load"]
 
         if pp_asym_loads.empty:
@@ -1091,7 +1089,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         self.pgm_input_data[ComponentType.link] = pgm_links
 
     def _create_pgm_input_storages(self):
-        # TODO: create unit tests for the function
         # 3ph output to be made available too
         pp_storage = self.pp_input_data["storage"]
 
@@ -1101,7 +1098,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         raise NotImplementedError("Storage is not implemented yet!")
 
     def _create_pgm_input_impedances(self):
-        # TODO: create unit tests for the function
         pp_impedance = self.pp_input_data["impedance"]
 
         if pp_impedance.empty:
@@ -1110,7 +1106,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         raise NotImplementedError("Impedance is not implemented yet!")
 
     def _create_pgm_input_wards(self):
-        # TODO: create unit tests for the function
         pp_wards = self.pp_input_data["ward"]
 
         if pp_wards.empty:
@@ -1157,7 +1152,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
             self.pgm_input_data[ComponentType.sym_load] = pgm_sym_loads_from_ward
 
     def _create_pgm_input_xwards(self):
-        # TODO: create unit tests for the function
         pp_xwards = self.pp_input_data["xward"]
 
         if pp_xwards.empty:
@@ -1166,7 +1160,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         raise NotImplementedError("Extended Ward is not implemented yet!")
 
     def _create_pgm_input_motors(self):
-        # TODO: create unit tests for the function
         pp_motors = self.pp_input_data["motor"]
 
         if pp_motors.empty:
@@ -1214,7 +1207,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
             self.pgm_input_data[ComponentType.sym_load] = pgm_sym_loads_from_motor
 
     def _create_pgm_input_dclines(self):
-        # TODO: create unit tests for the function
         pp_dcline = self.pp_input_data["dcline"]
 
         if pp_dcline.empty:
@@ -1223,7 +1215,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         raise NotImplementedError("DC line is not implemented yet. power-grid-model does not support PV buses yet")
 
     def _create_pgm_input_generators(self):
-        # TODO: create unit tests for the function
         pp_gen = self.pp_input_data["gen"]
 
         if pp_gen.empty:
@@ -1238,7 +1229,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Bus component
         """
-        # TODO: create unit tests for the function
         if "res_bus" in self.pp_output_data:
             raise ValueError("res_bus already exists in pp_output_data.")
 
@@ -1261,7 +1251,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         self.pp_output_data["res_bus"] = pp_output_buses
 
     def _pp_buses_output__accumulate_power(self, pp_output_buses: pd.DataFrame):
-        # TODO: create unit tests for the function
         """
         For each node, we accumulate the power for all connected branches and branch3s
 
@@ -1333,7 +1322,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Line component
         """
-        # TODO: create unit tests for the function
         if "res_line" in self.pp_output_data:
             raise ValueError("res_line already exists in pp_output_data.")
 
@@ -1417,7 +1405,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Shunt component
         """
-        # TODO: create unit tests for the function
         if "res_shunt" in self.pp_output_data:
             raise ValueError("res_shunt already exists in pp_output_data.")
 
@@ -1473,7 +1460,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Transformer component
         """
-        # TODO: create unit tests for the function
         if "res_trafo" in self.pp_output_data:
             raise ValueError("res_trafo already exists in pp_output_data.")
 
@@ -1545,7 +1531,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Three Winding Transformer component
         """
-        # TODO: create unit tests for the function
         if "res_trafo3w" in self.pp_output_data:
             raise ValueError("res_trafo3w already exists in pp_output_data.")
 
@@ -1620,7 +1605,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Asymmetrical Load component
         """
-        # TODO: create unit tests for the function
         if "res_asymmetric_load" in self.pp_output_data:
             raise ValueError("res_asymmetric_load already exists in pp_output_data.")
 
@@ -1650,7 +1634,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Asymmetric Static Generator component
         """
-        # TODO: create unit tests for the function
         if "res_asymmetric_sgen" in self.pp_output_data:
             raise ValueError("res_asymmetric_sgen already exists in pp_output_data.")
 
@@ -2229,7 +2212,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Shunt component
         """
-        # TODO: create unit tests for the function
         if "res_shunt_3ph" in self.pp_output_data:
             raise ValueError("res_shunt_3ph already exists in pp_output_data.")
 
@@ -2256,7 +2238,6 @@ class PandaPowerConverter(BaseConverter[PandaPowerData]):
         Returns:
             a PandaPower Dataframe for the Asymmetrical Load component
         """
-        # TODO: create unit tests for the function
         if "res_asymmetric_load_3ph" in self.pp_output_data:
             raise ValueError("res_asymmetric_load_3ph already exists in pp_output_data.")
 
